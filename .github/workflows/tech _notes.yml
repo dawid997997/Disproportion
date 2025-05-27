@@ -1,9 +1,8 @@
-name: Tech Notes Comments
+name: Add Tech Notes to GitHub Issue
 
 on:
-  push:
-    paths:
-      - "docs/tech_notes/*.md"  # Akcja uruchamia się przy zmianie plików w folderze
+  pull_request:
+    types: [opened, synchronize]  # Działa przy każdym PR (np. przy 'git pull')
 
 jobs:
   add-tech-notes-comment:
@@ -12,24 +11,31 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Add Tech Note as Comment
+      - name: Process Tech Notes
         run: |
-          for file in $(find docs/tech_notes -type f -name "*.md"); do
-            echo "Processing $file"
+          for file in $(find docs/tech_notes -type f -name "Task_*.md"); do
+            echo "Processing file: $file"
             filename=$(basename "$file")
-            # Załóżmy, że format to Task_<numer>.md
+
+            # Pobranie numeru issue z nazwy pliku Task_<numer>.md
             issue_number=$(echo "$filename" | sed -n 's/Task_\([0-9]\+\)\.md/\1/p')
-            
+
             if [ -z "$issue_number" ]; then
-              echo "Nie znaleziono numeru issue w nazwie pliku $filename"
+              echo "⚠ Brak numeru issue w pliku: $filename"
               continue
             fi
             
-            echo "Znaleziono numer issue: $issue_number"
+            echo "✅ Znaleziono numer issue: $issue_number"
+
+            # Pobranie zawartości pliku
             content=$(cat "$file")
-            
+
+            # Dodanie komentarza do odpowiedniego issue na GitHub
             curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/json" \
             -d "{\"body\": \"### Tech Notes\n$content\"}" \
             "https://api.github.com/repos/${{ github.repository }}/issues/${issue_number}/comments"
+
+            echo "✅ Komentarz dodany do Issue #$issue_number"
           done
+
