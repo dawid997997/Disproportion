@@ -1,0 +1,24 @@
+name: Tech Notes to GitHub Issue
+
+on:
+  push:
+    paths:
+      - "docs/tech_notes/*.md"  # Uruchamia akcję, gdy zmienisz plik w Tech Notes
+
+jobs:
+  add_comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Read Tech Notes file
+        run: |
+          FILENAME=$(ls docs/tech_notes | head -n 1)  # Pobiera pierwszy plik
+          ISSUE_NUMBER=$(echo "$FILENAME" | grep -oE '[0-9]+')  # Pobiera numer issue
+          CONTENT=$(cat docs/tech_notes/$FILENAME)  # Pobiera zawartość pliku
+
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d "{\"body\":\"$CONTENT\"}" \
+          "https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE_NUMBER/comments"
