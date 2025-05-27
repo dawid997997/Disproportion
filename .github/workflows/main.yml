@@ -1,24 +1,38 @@
-name: Tech Notes to GitHub Issue
+name: Tech Notes Comments
 
 on:
   push:
     paths:
-      - "docs/tech_notes/*.md"  # Uruchamia akcję, gdy zmienisz plik w Tech Notes
+      - "docs/tech_notes/*.md"  # Akcja odpala się przy zmianie plików w tym folderze
 
 jobs:
-  add_comment:
+  add-tech-notes-comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Read Tech Notes file
+      - name: Add Tech Note as Comment
         run: |
-          FILENAME=$(ls docs/tech_notes | head -n 1)  # Pobiera pierwszy plik
-          ISSUE_NUMBER=$(echo "$FILENAME" | grep -oE '[0-9]+')  # Pobiera numer issue
-          CONTENT=$(cat docs/tech_notes/$FILENAME)  # Pobiera zawartość pliku
-
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Content-Type: application/json" \
-          -d "{\"body\":\"$CONTENT\"}" \
-          "https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE_NUMBER/comments"
+          # Przechodzimy przez wszystkie pliki markdown w folderze
+          for file in $(find docs/tech_notes -type f -name "*.md"); do
+            echo "Processing $file"
+            filename=$(basename "$file")
+            # Zakładamy, że nazwa pliku ma format DIS-<numer>.md, np. DIS-24.md
+            issue_number=$(echo "$filename" | sed -n 's/.*-\([0-9]\+\)\.md/\1/p')
+            if [ -z "$issue_number" ]; then
+              echo "No issue number found in filename $filename"
+              continue
+            fi
+            echo "Found issue number: $issue_number"
+            content=$(cat "$file")
+            
+            # Dodajemy komentarz do odpowiedniego issue na GitHub
+            curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "{\"body\": \"### Tech Notes\n$content\"}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${issue_number}/comments"
+          done
+        env:
+          # GITHUB_TOKEN jest dostępny automatycznie w GitHub Actions
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
