@@ -2,6 +2,9 @@ import os
 import re
 import requests
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # Config
 LINEAR_API_KEY = os.getenv("LINEAR_API_KEY")
 REPO_URL = "https://github.com/dawid997997/Disproportion/tree/master/docs/tech_notes"  # Zmień na swój
