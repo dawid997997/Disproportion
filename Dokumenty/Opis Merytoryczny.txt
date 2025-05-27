@@ -1,0 +1,83 @@
+I. Główne mechanizmy deformacji wyników wyborów
+
+A. Wysoki ustawowy próg wyborczy
+
+1. 5 procent dla partii, 8 procent dla koalicji
+2. Skutki: odrzucenie milionów głosów, często z powodu koalicyjności
+3. Wskaźnik: procent głosów zmarnowanych przez ustawowy próg
+
+B. Wysoki efektywny próg wyborczy
+
+1. Zależy od liczby mandatów w okręgu
+2. W małych okręgach może wynosić nawet 15–20 procent
+3. Wskaźnik: efektywny próg w każdym okręgu (minimalny wynik dający szansę na mandat)
+
+C. Premia dla dużych partii w metodzie D’Hondta
+
+1. Faworyzowanie zwycięzcy, karanie średnich partii
+2. Można porównać z innymi metodami (Sainte-Laguë, Hare-Niemeyer)
+3. Wskaźnik: różnica w liczbie mandatów dla tych samych wyników procentowych między D’Hondtem a innymi metodami
+
+---
+
+II. Wskaźniki nierówności reprezentacji
+
+A. Indeks disproporcjonalności
+
+1. Przykład: Gallagher Index – miara odległości między udziałem w głosach a udziałem w mandatach
+2. Wskaźnik: wartość indeksu dla danego roku wyborczego
+
+B. Zmienność wartości mandatu
+
+1. Liczba głosów potrzebna do zdobycia mandatu różni się między okręgami
+2. Przykład: jeden mandat za 20 tysięcy głosów vs. za 40 tysięcy
+3. Wskaźnik: liczba głosów przypadająca na jeden mandat w każdym okręgu
+
+C. Martwe głosy
+
+1. Głosy na partie, które nie przekroczyły ustawowego progu
+2. Głosy, które nie przekładają się na mandaty w okręgu (np. 10 procent i brak mandatu)
+3. Wskaźnik: procent martwych głosów w skali kraju i w poszczególnych okręgach
+
+---
+
+III. Oceny deformacji i zjawiska systemowe
+
+A. Kara za wspólny start
+
+1. Koalicje mają wyższy próg – zniechęca do łączenia sił
+2. Wskaźnik: symulacja ile mandatów traciłyby bloki przy różnych formułach startu
+
+B. Głosowanie strategiczne i „kanibalizacja” małych partii
+
+1. Zjawisko głosowania „żeby nie zmarnować głosu” zamiast zgodnie z przekonaniami
+2. Wskaźnik: liczba przypadków, w których partie balansujące na progu otrzymały dużo głosów, ale nie weszły
+
+C. Redystrybucja między okręgami
+
+1. W małych okręgach głosy szybciej się „marnują”, premiując duże partie
+2. Wskaźnik: liczba głosów "przekazanych" de facto większym ugrupowaniom poprzez system
+
+D. Zabetonowanie sceny politycznej
+
+1. Nowe ugrupowania mają niewielką szansę wejścia do Sejmu bez dużych nazwisk
+2. Wskaźnik: liczba nowych partii, które zdobyły mandaty w wyborach od 2001 roku
+
+---
+
+IV. Propozycje dodatkowych wskaźników i symulacji
+
+A. Model idealny – równe poparcie
+
+1. Założenie: każda partia otrzymuje 10 procent
+2. Wskaźnik: rozkład mandatów w zależności od metody przeliczenia
+
+B. Indeks efektywności przełożenia głosów na mandaty
+
+1. Procent głosów przekształcony w mandaty w stosunku do liczby ważnych głosów
+2. Wskaźnik: różnica między procentem poparcia a udziałem w mandatowej puli
+
+C. Symulacja wyborów przy różnych ordynacjach
+
+1. Przeliczenie tych samych wyników dla różnych metod (D’Hondt, Sainte-Laguë, Hare)
+2. Wskaźnik: różnica w liczbie mandatów dla każdej partii

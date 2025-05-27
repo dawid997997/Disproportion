@@ -1,0 +1,75 @@
+Cel projektu:  
+Projekt powstaje w celu uświadomienia użytkownikom mechanizmów deformacji wyników wyborów w Polsce. Jego misją jest dostarczenie rzetelnej analizy skutków obowiązującej ordynacji wyborczej oraz umożliwienie obywatelom lepszego zrozumienia, jak różne systemy wyborcze wpływają na reprezentację polityczną.  
+
+Adresaci:  
+Projekt kierowany jest do obywateli i wyborców, aby lepiej rozumieli skutki obowiązującego systemu wyborczego; badaczy i analityków politycznych jako narzędzie do analizy i dyskusji nad możliwymi reformami; dziennikarzy i edukatorów, aby mogli wykorzystywać zgromadzone dane do popularyzacji wiedzy na temat deformacji wyborczych; decydentów politycznych, aby zobaczyli, jak obecny system wpływa na reprezentację i rozważyli zmiany legislacyjne.  
+
+Motywacja twórcy:  
+Projekt został stworzony z przekonania, że demokracja powinna jak najlepiej odzwierciedlać wolę obywateli. Ordynacja wyborcza ma ogromny wpływ na to, które głosy są reprezentowane i jak przekładają się na rzeczywistą władzę. Poprzez ten projekt twórca chce zwrócić uwagę na deformacje obecnego systemu i zachęcić do debaty na temat jego możliwych zmian.  
+
+Główne mechanizmy deformacji wyników wyborów  
+
+Wysoki ustawowy próg wyborczy  
+5 procent dla partii, 8 procent dla koalicji  
+Skutki: miliony głosów są odrzucane, często z powodu koalicyjności  
+Wskaźnik: procent głosów zmarnowanych przez ustawowy próg  
+
+Wysoki efektywny próg wyborczy  
+Zależność od liczby mandatów w okręgu  
+Małe okręgi mogą mieć próg 15–20 procent  
+Wskaźnik: minimalny wynik dający mandat w każdym okręgu  
+
+Premia dla dużych partii w metodzie D’Hondta  
+Faworyzowanie zwycięzców, penalizacja średnich partii  
+Porównanie z metodami Sainte-Laguë, Hare-Niemeyer  
+Wskaźnik: różnica w liczbie mandatów między systemami  
+
+Wskaźniki nierówności reprezentacji  
+
+Indeks disproporcjonalności  
+Gallagher Index mierzy różnice między głosami a mandatami  
+Wskaźnik: wartość indeksu dla każdego roku wyborczego  
+
+Zmienność wartości mandatu  
+Różnice w liczbie głosów na mandat między okręgami  
+Przykład: 20 tys. głosów vs. 40 tys. głosów na mandat  
+Wskaźnik: liczba głosów na mandat w każdym okręgu  
+
+Martwe głosy  
+Głosy na partie poniżej progu wyborczego  
+Głosy, które nie przekładają się na mandaty w okręgu  
+Wskaźnik: procent martwych głosów krajowych i okręgowych  
+
+Ocena deformacji i zjawiska systemowe  
+
+Kara za wspólny start  
+Wyższy próg dla koalicji zniechęca do ich tworzenia  
+Wskaźnik: symulacja liczby straconych mandatów w różnych scenariuszach  
+
+Głosowanie strategiczne i „kanibalizacja” małych partii  
+Głosowanie „żeby nie zmarnować głosu”  
+Wskaźnik: przypadki, gdy partie balansujące na progu nie dostały mandatów  
+
+Redystrybucja między okręgami  
+Małe okręgi faworyzują większe partie  
+Wskaźnik: liczba głosów przekazanych większym ugrupowaniom  
+
+Zabetonowanie sceny politycznej  
+Nowe partie mają trudności w wejściu do Sejmu  
+Wskaźnik: liczba nowych partii zdobywających mandaty od 2001 roku  
+
+Propozycje dodatkowych wskaźników i symulacji  
+
+Model idealny – równe poparcie  
+Założenie: każda partia ma 10 procent poparcia  
+Wskaźnik: rozkład mandatów dla różnych metod przeliczenia  
+
+Indeks efektywności przełożenia głosów na mandaty  
+Procent głosów przekształcony w mandaty  
+Wskaźnik: różnica między poparciem a udziałem w mandatowej puli  
+
+Symulacja wyborów przy różnych ordynacjach  
+Porównanie wyników dla metod D’Hondt, Sainte-Laguë, Hare  
+Wskaźnik: różnica w liczbie mandatów dla każdej partii  
+
+

@@ -1,0 +1,92 @@
+I. Struktura ogólna
+
+Praca nad projektem jest podzielona na trzy fazy:
+
+* faza przygotowawcza (tworzenie dokumentów i zaplanowanie pracy)
+* faza realizacji (wdrażanie funkcji według roadmapy)
+* faza cyklicznej aktualizacji i refleksji (po zakończeniu MVP)
+
+W każdej fazie korzystasz z dokumentów, Linear do zarządzania zadaniami, GitHub do kodu oraz dwóch folderów z notatkami: tech_notes i plan_notes.
+
+II. Faza przygotowawcza
+
+Na początku tworzysz dokumenty planistyczne, które są punktem odniesienia:
+
+* Dokument wizji i celu projektu
+* Opis treści merytorycznej
+* Schemat struktury wskaźników i ocen
+* Plan rozwoju wersji (Roadmapa)
+* Plan workflow
+* Mapa funkcji użytkownika
+
+Dodatkowo podczas dalszej pracy uzupełniasz:
+
+* Opis technologiczny (Tech Spec)
+* Opis danych i ich źródeł
+
+Notatki są zapisywane w dwóch folderach:
+
+* plan_notes – refleksje planistyczne, decyzje projektowe
+* tech_notes – notatki techniczne po zakończeniu każdego taska
+
+III. Faza realizacji
+
+a. Procedura realizacji epika (etapu z roadmapy)
+
+1. Wybierasz epik z roadmapy i zakładasz go w Linear
+2. Dzielisz epik na 2–6 tasków do wykonania w nadchodzących tygodniach
+3. W osobnym folderze plan_notes przygotowujesz notatkę wstępną, jeśli jest potrzebna
+4. Przechodzisz do realizacji tasków
+5. Po zakończeniu wszystkich tasków w epiku:
+
+* piszesz podsumowanie w plan_notes (refleksja, decyzje, obserwacje)
+* aktualizujesz roadmapę i dokumenty, jeśli to konieczne
+* skrypt(lub ręcznie) dodaje linki do tych notatek jako komentarze do epika w Linear
+
+b. Procedura realizacji pojedynczego taska
+
+1. Tworzysz task w Linear i przypisujesz go do epika
+2. Zakładasz nową gałąź w GitHub dla tego taska
+3. Pracujesz nad funkcją lub rozwiązaniem
+4. Po zakończeniu kodowania:
+
+* commitujesz zmiany
+* wypychasz do GitHub
+* robisz pull request i mergujesz po zatwierdzeniu
+
+5. Tworzysz notatkę w tech_notes opisującą przebieg, problemy, decyzje
+
+6. Skrypt (lub ręcznie) dodaje link do tej notatki jako komentarz pod taskiem w Linear
+
+7. Przeglądasz poprzednie notatki w tech_notes i wyciągasz ewentualne wnioski
+
+8. Oznaczasz task jako zakończony w Linear
+
+IV Plan tygodnia
+
+* Na początku tygodnia wybierasz 2–3 taski z jednego epika
+* Pracujesz tylko nad nimi, nie otwierając nowych
+* Po każdym tasku:
+
+  * zapisujesz notatkę w tech_notes
+  * przeglądasz wcześniejsze notatki
+* Pod koniec tygodnia robisz szybki przegląd pracy
+* Raz na 2–3 tygodnie aktualizujesz roadmapę
+* Po zakończeniu epika piszesz refleksję w plan_notes
+
+V Notatki i refleksje
+
+* tech_notes – po każdym tasku, krótkie techniczne obserwacje
+* plan_notes – po każdym epiku, szersze przemyślenia i decyzje projektowe
+* skrypt automatycznie dodaje linki do tych notatek jako komentarze w Linear (do tasków i epików)
+* raz w tygodniu przeglądasz notatki, oceniasz, czy coś wymaga aktualizacji w dokumentach
+
+VI Faza rozwoju po MVP
+
+Po zakończeniu wersji podstawowej:
+
+* przeglądasz plan_notes i dokumenty projektowe
+* oceniasz, które elementy warto rozwijać
+* analizujesz dane z użycia systemu
+* dodajesz nowe epiki i funkcje
+* projekt przechodzi w tryb rozszerzania i utrzymania
