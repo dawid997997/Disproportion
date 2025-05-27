@@ -1,0 +1,28 @@
+### 🔹 **Podstawowe operacje**
+✅ `git init` – Inicjalizuje nowe repozytorium Git w folderze.  
+✅ `git clone <URL>` – Pobiera repozytorium GitHub na lokalny komputer.  
+✅ `git status` – Sprawdza status plików w repozytorium (zmiany, staged, untracked).  
+✅ `git add <plik>` – Dodaje plik do obszaru staging (przygotowuje go do commit'u).  
+✅ `git commit -m "Opis zmian"` – Tworzy commit, zapisując zmiany.  
+✅ `git push origin <gałąź>` – Wysyła zmiany do zdalnego repozytorium na GitHub.  
+✅ `git pull origin <gałąź>` – Pobiera aktualizacje z repozytorium GitHub.  
+
+### 🔹 **Praca z gałęziami (branches)**
+✅ `git branch` – Wyświetla listę wszystkich gałęzi w repozytorium.  
+✅ `git branch <nazwa>` – Tworzy nową gałąź.  
+✅ `git checkout <gałąź>` – Przełącza na inną gałąź.  
+✅ `git checkout -b <nazwa>` – Tworzy i przechodzi na nową gałąź.  
+✅ `git merge <gałąź>` – Łączy wskazaną gałąź z obecną.  
+
+### 🔹 **Praca z historią commitów**
+✅ `git log` – Wyświetla historię commitów.  
+✅ `git log --oneline --graph --decorate` – Skrócona historia commitów w formie drzewa.  
+✅ `git diff` – Pokazuje różnice między wersjami plików.  
+✅ `git reset --hard <commit_ID>` – Cofnięcie repozytorium do konkretnego commit'u.  
+
+### 🔹 **Obsługa pull request (PR)**
+✅ `git checkout -b <nazwa>` – Tworzysz nową gałąź do zmian.  
+✅ `git push origin <nazwa>` – Wysyłasz zmiany na GitHub.  
+✅ **Na GitHub tworzysz Pull Request** do weryfikacji i akceptacji zmian.  
+
+

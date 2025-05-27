@@ -26,62 +26,53 @@ Dodatkowo podczas dalszej pracy uzupełniasz:
 
 Notatki są zapisywane w dwóch folderach:
 
-* plan_notes – refleksje planistyczne, decyzje projektowe
-* tech_notes – notatki techniczne po zakończeniu każdego taska
+* plan_notes – refleksje planistyczne, decyzje projektowe tworzone po zakończeniu każdego kamienia milowego
+Nazwa: Plan_[numer kamienia milowego].md
+* tech_notes – notatki techniczne tworzone po zakończeniu każdego taska. 
+Nazwa: DIS-[numer taska].md
 
 III. Faza realizacji
 
-a. Procedura realizacji epika (etapu z roadmapy)
+a. Procedura realizacji Kamienia Milowego (etapu z roadmapy)
 
-1. Wybierasz epik z roadmapy i zakładasz go w Linear
-2. Dzielisz epik na 2–6 tasków do wykonania w nadchodzących tygodniach
+1. Wybierasz Kamień Milowy z roadmapy i zakładasz go w Linear
+2. Dzielisz epik na 2–6 tasków do wykonania w nadchodzącym czasie
 3. W osobnym folderze plan_notes przygotowujesz notatkę wstępną, jeśli jest potrzebna
 4. Przechodzisz do realizacji tasków
 5. Po zakończeniu wszystkich tasków w epiku:
 
 * piszesz podsumowanie w plan_notes (refleksja, decyzje, obserwacje)
+* przeglądasz tech_notes z tasków w tym epiku 
 * aktualizujesz roadmapę i dokumenty, jeśli to konieczne
-* skrypt(lub ręcznie) dodaje linki do tych notatek jako komentarze do epika w Linear
+* dodajesz te notatki jako komentarze do Kamienia Milowego w Linear
 
 b. Procedura realizacji pojedynczego taska
 
-1. Tworzysz task w Linear i przypisujesz go do epika
-2. Zakładasz nową gałąź w GitHub dla tego taska
+1. Tworzysz task w Linear i przypisujesz go do Kamienia Milowego
+2. Zakładasz nową gałąź w GitHub dla tego taska [git checkout -b <nazwa>]
 3. Pracujesz nad funkcją lub rozwiązaniem
 4. Po zakończeniu kodowania:
 
-* commitujesz zmiany
-* wypychasz do GitHub
-* robisz pull request i mergujesz po zatwierdzeniu
+* git add . 
+* git commit 
+* git push origin do GitHub
+* pull request
+* git merge <master>
 
-5. Tworzysz notatkę w tech_notes opisującą przebieg, problemy, decyzje
+5. Tworzysz notatkę w tech_notes opisującą tech_specs oraz dane i ich źródeł
 
-6. Skrypt (lub ręcznie) dodaje link do tej notatki jako komentarz pod taskiem w Linear
+6. Włączasz skrypt, który dodaje link do tej notatki jako komentarz pod taskiem w Linear
 
-7. Przeglądasz poprzednie notatki w tech_notes i wyciągasz ewentualne wnioski
+7. Oznaczasz task jako zakończony w Linear
 
-8. Oznaczasz task jako zakończony w Linear
+IV Notatki i refleksje
 
-IV Plan tygodnia
-
-* Na początku tygodnia wybierasz 2–3 taski z jednego epika
-* Pracujesz tylko nad nimi, nie otwierając nowych
-* Po każdym tasku:
-
-  * zapisujesz notatkę w tech_notes
-  * przeglądasz wcześniejsze notatki
-* Pod koniec tygodnia robisz szybki przegląd pracy
-* Raz na 2–3 tygodnie aktualizujesz roadmapę
-* Po zakończeniu epika piszesz refleksję w plan_notes
-
-V Notatki i refleksje
-
-* tech_notes – po każdym tasku, krótkie techniczne obserwacje
+* tech_notes – po każdym tasku, krótkie techniczne obserwacje które pomogą zbudować tech_specs oraz opis danych i źródeł
 * plan_notes – po każdym epiku, szersze przemyślenia i decyzje projektowe
-* skrypt automatycznie dodaje linki do tych notatek jako komentarze w Linear (do tasków i epików)
+* skrypt automatycznie dodaje linki do Tech_Notes jako komentarze w Linear do tasków
 * raz w tygodniu przeglądasz notatki, oceniasz, czy coś wymaga aktualizacji w dokumentach
 
-VI Faza rozwoju po MVP
+V Faza rozwoju po MVP
 
 Po zakończeniu wersji podstawowej:
 

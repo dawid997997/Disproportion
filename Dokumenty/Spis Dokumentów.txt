@@ -1,47 +1,37 @@
 I Część merytoryczna
 
-1. Dokument wizji i celu projektu
-
+1. Dokument wizji i celu projektu /
 Opisuje, po co powstaje projekt, jakie ma cele (edukacyjne, analityczne, społeczne) i dla kogo jest przeznaczony i jaki sposób i po co różne grupy osób mogą z niego korzystać. Zawiera też ogólną motywację twórcy.
 
-2. Opis treści merytorycznej
-
-Zawiera wszystkie wskaźniki, definicje, mechanizmy deformacji, kategorie ocen. Może zawierać schematy zależności i bibliografię źródeł.
+2. Opis treści merytorycznej /
+Zawiera wszystkie wskaźniki, definicje, mechanizmy deformacji, kategorie ocen.
 
 3. Schemat struktury wskaźników i ocen
-
 Porządkuje wszystkie wskaźniki w logiczny system kategorii i ocen (np. deformacje, nierówności, skutki polityczne), co pomaga później zaprojektować interfejs użytkownika.
 
 
 II Planowanie 
-1. Plan rozwoju wersji (Epiki/Roadmapa)
-
+1. Plan rozwoju wersji (Roadmapa)
 Opisuje, jakie funkcje będą dodawane w kolejnych wersjach projektu i kiedy planujesz ich realizację.
 
 2. Lista zadań (Taski)
+Spis konkretnych kroków do wykonania przy tworzeniu projektu: od strony technicznej, merytorycznej i wizualnej. Pomaga planować i śledzić postęp.Każdy Task jest przyporządkowany Kamieniowi Milowemu na Roadmapie 
 
-Spis konkretnych kroków do wykonania przy tworzeniu projektu: od strony technicznej, merytorycznej i wizualnej. Pomaga planować i śledzić postęp.
-
-3. Plan workflow
-
+3. Plan workflow /
 Opis całego procesu pracy: podział na fazy, zasady pracy z narzędziami, tygodniowy rytm, commitowanie, aktualizacje dokumentów.
 
 4. Plan Notes 
-
 Miejsce do zapisywania bieżących pomysłów, wątpliwości, obserwacji – przeglądane raz w tygodniu.
 
 III Część techniczna
 
 1. Mapa funkcji użytkownika (User Flow)
-
 Przedstawia, co użytkownik może zrobić na stronie i jak się po niej porusza. Może mieć formę prostego rysunku lub opisu krok po kroku.
 
 2. Opis technologiczny (Tech Spec)
-
 Określa, jakie technologie będą używane (Java Spring, MySQL, frontend), jak działa architektura systemu, struktura bazy danych, API i logika aplikacji.
 
 3. Opis danych i ich źródeł
-
 Lista danych używanych w projekcie (np. PKW, GUS), sposób ich pobierania, aktualizacji, formatów oraz sposób wykorzystania ich w analizie.
 
 4. Tech Notes

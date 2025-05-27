@@ -20,7 +20,7 @@ C. Premia dla dużych partii w metodzie D’Hondta
 
 ---
 
-II. Wskaźniki nierówności reprezentacji
+II. Wskaźniki ogólne nierówności reprezentacji
 
 A. Indeks disproporcjonalności
 
@@ -41,7 +41,7 @@ C. Martwe głosy
 
 ---
 
-III. Oceny deformacji i zjawiska systemowe
+III. Oceny deformacji oraz ich wskaźniki, zjawiska systemowe
 
 A. Kara za wspólny start
 

@@ -1,89 +1,106 @@
 import os
-import re
+import json
 import requests
 
-from dotenv import load_dotenv
-load_dotenv()
+# Konfiguracja API Linear
+LINEAR_API_URL = "https://api.linear.app/graphql"
+LINEAR_API_TOKEN = "lin_api_4sZUdjW7NCKIoMCaBE3LLIl0MEqFnalvQ9rUXoZR"
 
-# Config
-LINEAR_API_KEY = os.getenv("key")
-REPO_URL = "https://github.com/dawid997997/Disproportion/tree/master/docs/tech_notes"  # Zmień na swój
-TECH_NOTES_FOLDER = "tech_notes"
-
-headers = {
-    "Authorization": LINEAR_API_KEY,
-    "Content-Type": "application/json"
-}
-
-def extract_slug(filename):
-    match = re.match(r"(APP-\d+)", filename)
-    return match.group(1) if match else None
-
-def post_comment_to_issue(issue_slug, note_url):
-    query = """
-    mutation CreateComment($input: CommentCreateInput!) {
-      commentCreate(input: $input) {
-        success
-      }
-    }
-    """
-    variables = {
-        "input": {
-            "issueId": issue_slug,
-            "body": f" Powiązana notatka techniczna: [Zobacz plik]({note_url})"
-        }
-    }
-
-    response = requests.post(
-        "https://api.linear.app/graphql",
-        headers=headers,
-        json={"query": query, "variables": variables}
-    )
-
-    if response.status_code == 200:
-        print(f" Dodano komentarz do {issue_slug}")
-    else:
-        print(f" Błąd dodawania do {issue_slug}: {response.text}")
+# Folder z notatkami
+FOLDER_PATH = "docs/tech_notes"
 
 def get_issue_id_by_slug(slug):
+    """ Pobiera ID issue na podstawie rzeczywistego identifier (sluga) """
     query = """
-    query IssueBySlug($slug: String!) {
-      issue(slug: $slug) {
-        id
+    query {
+      issues {
+        nodes {
+          id
+          identifier
+          title
+          number
+        }
       }
     }
     """
-    variables = {"slug": slug}
 
-    response = requests.post(
-        "https://api.linear.app/graphql",
-        headers=headers,
-        json={"query": query, "variables": variables}
-    )
+    headers = {
+        "Authorization": LINEAR_API_TOKEN,
+        "Content-Type": "application/json"
+    }
 
+    print(f"🔍 Pobieranie wszystkich issue w Linear...")
+
+    response = requests.post(LINEAR_API_URL, json={"query": query}, headers=headers)
     data = response.json()
-    try:
-        return data["data"]["issue"]["id"]
-    except:
-        print(f" Nie znaleziono taska o slugu {slug}")
+
+    print("🔍 Pełna odpowiedź API:", data)  # Debugowanie
+
+    issues = data.get("data", {}).get("issues", {}).get("nodes", [])
+
+    if not issues:
+        print("⚠️ Linear nie zwrócił żadnych issue. Sprawdź API Token!")
         return None
 
-def main():
-    for filename in os.listdir(TECH_NOTES_FOLDER):
-        if not filename.endswith(".md"):
-            continue
+    print(f"🔍 Znaleziono {len(issues)} issue w Linear.")
 
-        slug = extract_slug(filename)
-        if not slug:
-            print(f" Pominięto plik (brak slugu): {filename}")
-            continue
+    for issue in issues:
+        print(f"🔹 Sprawdzam: {issue['identifier']} vs {slug}")
+        if issue["identifier"] == slug:
+            print(f"✅ Dopasowanie! ID issue: {issue['id']}")
+            return issue["id"]
 
-        issue_id = get_issue_id_by_slug(slug)
-        if not issue_id:
-            continue
+    print(f"⚠️ Brak dopasowania dla sluga: {slug}. Sprawdź poprawność nazwy.")
+    return None
 
-        note_url = f"{REPO_URL}/{filename}"
-        post_comment_to_issue(issue_id, note_url)
+def add_comment_to_issue(issue_id, comment):
+    """ Dodaje komentarz do issue w Linear, używając `commentCreate` i poprawnego formatowania """
+    safe_comment = json.dumps(comment)  # Zapewnia poprawne kodowanie JSON
+
+    mutation = f"""
+    mutation {{
+      commentCreate(input: {{issueId: "{issue_id}", body: {safe_comment}}}) {{
+        comment {{
+          id
+        }}
+      }}
+    }}
+    """
+
+    headers = {
+        "Authorization": LINEAR_API_TOKEN,
+        "Content-Type": "application/json"
+    }
+
+    print(f"📝 Dodawanie komentarza do issue ID: {issue_id}")
+
+    response = requests.post(LINEAR_API_URL, json={"query": mutation}, headers=headers)
+
+    print("📝 Odpowiedź API (komentarz):", response.json())  # Debugowanie odpowiedzi API
+
+    return response.status_code == 200
+
+def process_notes():
+    """ Pobiera pliki .md, wyciąga slug z nazwy i wysyła do Linear z debugowaniem """
+    for filename in os.listdir(FOLDER_PATH):
+        if filename.endswith(".md"):
+            slug = filename.replace(".md", "").strip().upper()
+
+            print(f"📂 Przetwarzanie pliku: {filename}, slug: {slug}")
+
+            with open(os.path.join(FOLDER_PATH, filename), "r", encoding="utf-8") as file:
+                content = file.read().strip()  # Usunięcie ewentualnych pustych linii
+
+            issue_id = get_issue_id_by_slug(slug)
+
+            if issue_id:
+                success = add_comment_to_issue(issue_id, content)
+                if success:
+                    print(f"✅ Dodano notatkę do issue {slug}.")
+                else:
+                    print(f"❌ Błąd dodawania notatki do issue {slug}.")
+            else:
+                print(f"⚠️ Nie znaleziono issue dla sluga {slug}. Sprawdź poprawność nazwy.")
 
 if __name__ == "__main__":
-    main()
+    process_notes()
