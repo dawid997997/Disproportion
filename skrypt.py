@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Config
-LINEAR_API_KEY = os.getenv("LINEAR_API_KEY")
+LINEAR_API_KEY = os.getenv("key")
 REPO_URL = "https://github.com/dawid997997/Disproportion/tree/master/docs/tech_notes"  # Zmień na swój
 TECH_NOTES_FOLDER = "tech_notes"
 
