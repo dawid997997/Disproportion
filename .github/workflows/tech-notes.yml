@@ -1,4 +1,7 @@
 name: Add Tech Notes to GitHub Issue
+permissions:
+  contents: read
+  issues: write
 
 on:
   push:
