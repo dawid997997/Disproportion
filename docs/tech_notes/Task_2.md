@@ -1,3 +1,3 @@
-Uwagi Technicze:null
+Uwagi Technicze:nulls
 Dane:nulls
 
