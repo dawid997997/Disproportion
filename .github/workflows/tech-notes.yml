@@ -14,7 +14,7 @@ jobs:
 
       - name: Add comments to GitHub Issues
         env:
-          GH_TOKEN: ${{ secrets.TOKEN_2 }}
+         TOKEN_2: ${{ secrets.TOKEN_2 }}
         run: |
           set -e
           echo "📝 Start processing tech notes..."
