@@ -1,8 +1,9 @@
 name: Add Tech Notes to GitHub Issue
 
 on:
-  pull_request:
-    types: [opened, synchronize]  # Działa przy każdym PR (np. przy 'git pull')
+  push:
+    paths:
+      - "docs/tech_notes/*.md"
 
 jobs:
   add-tech-notes-comment:
