@@ -6,7 +6,7 @@ Praca nad projektem jest podzielona na trzy fazy:
 * faza realizacji (wdrażanie funkcji według roadmapy)
 * faza cyklicznej aktualizacji i refleksji (po zakończeniu MVP)
 
-W każdej fazie korzystasz z dokumentów, Linear do zarządzania zadaniami, GitHub do kodu oraz dwóch folderów z notatkami: tech_notes i plan_notes.
+W każdej fazie korzystasz z dokumentów, GitHub do kodu i do zarządzania zadaniami oraz dwóch folderów z notatkami: tech_notes i plan_notes.
 
 II. Faza przygotowawcza
 
@@ -29,22 +29,22 @@ Notatki są zapisywane w dwóch folderach:
 * plan_notes – refleksje planistyczne, decyzje projektowe tworzone po zakończeniu każdego kamienia milowego
 Nazwa: Plan_[numer kamienia milowego].md
 * tech_notes – notatki techniczne tworzone po zakończeniu każdego taska. 
-Nazwa: DIS-[numer taska].md
+Nazwa: Task_[numer taska].md
 
 III. Faza realizacji
 
 a. Procedura realizacji Kamienia Milowego (etapu z roadmapy)
 
-1. Wybierasz Kamień Milowy z roadmapy i zakładasz go w Linear
+1. Wybierasz Kamień Milowy z roadmapy
 2. Dzielisz epik na 2–6 tasków do wykonania w nadchodzącym czasie
 3. W osobnym folderze plan_notes przygotowujesz notatkę wstępną, jeśli jest potrzebna
 4. Przechodzisz do realizacji tasków
-5. Po zakończeniu wszystkich tasków w epiku:
+5. Po zakończeniu wszystkich tasków w Kamieniu:
 
 * piszesz podsumowanie w plan_notes (refleksja, decyzje, obserwacje)
 * przeglądasz tech_notes z tasków w tym epiku 
 * aktualizujesz roadmapę i dokumenty, jeśli to konieczne
-* dodajesz te notatki jako komentarze do Kamienia Milowego w Linear
+* dodajesz te notatki jako komentarze do Kamienia Milowego
 
 b. Procedura realizacji pojedynczego taska
 
@@ -61,15 +61,15 @@ b. Procedura realizacji pojedynczego taska
 
 5. Tworzysz notatkę w tech_notes opisującą tech_specs oraz dane i ich źródeł
 
-6. Włączasz skrypt, który dodaje link do tej notatki jako komentarz pod taskiem w Linear
+6. GitHub dodaje link do tej notatki jako komentarz pod taskiem
 
-7. Oznaczasz task jako zakończony w Linear
+7. Oznaczasz task jako zakończony
 
 IV Notatki i refleksje
 
 * tech_notes – po każdym tasku, krótkie techniczne obserwacje które pomogą zbudować tech_specs oraz opis danych i źródeł
 * plan_notes – po każdym epiku, szersze przemyślenia i decyzje projektowe
-* skrypt automatycznie dodaje linki do Tech_Notes jako komentarze w Linear do tasków
+* wokrflow automatycznie dodaje linki do Tech_Notes jako komentarze do tasków
 * raz w tygodniu przeglądasz notatki, oceniasz, czy coś wymaga aktualizacji w dokumentach
 
 V Faza rozwoju po MVP
