@@ -12,31 +12,32 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Process Tech Notes
+      - name: Add comments to issues
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -e
           for file in $(find docs/tech_notes -type f -name "Task_*.md"); do
-            echo "Processing file: $file"
+            echo "📄 Processing file: $file"
             filename=$(basename "$file")
-
-            # Pobranie numeru issue z nazwy pliku Task_<numer>.md
             issue_number=$(echo "$filename" | sed -n 's/Task_\([0-9]\+\)\.md/\1/p')
-
+            
             if [ -z "$issue_number" ]; then
-              echo "⚠ Brak numeru issue w pliku: $filename"
+              echo "⚠️ Brak numeru issue w nazwie pliku: $filename"
               continue
             fi
-            
-            echo "✅ Znaleziono numer issue: $issue_number"
 
-            # Pobranie zawartości pliku
+            echo "🔢 Issue number found: $issue_number"
             content=$(cat "$file")
 
-            # Dodanie komentarza do odpowiedniego issue na GitHub
-            curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            -d "{\"body\": \"### Tech Notes\n$content\"}" \
-            "https://api.github.com/repos/${{ github.repository }}/issues/${issue_number}/comments"
+            # Escapowanie JSON-a
+            escaped_content=$(printf '%s\n' "$content" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+
+            curl -s -X POST \
+              -H "Authorization: token $GH_TOKEN" \
+              -H "Content-Type: application/json" \
+              -d "{\"body\": \"### Tech Notes\\n$escaped_content\"}" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/${issue_number}/comments"
 
             echo "✅ Komentarz dodany do Issue #$issue_number"
           done
-
